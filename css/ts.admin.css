@@ -1,0 +1,29 @@
+/*
+
+@package TheSpectrum_Experience
+
+*/
+
+.ts-generalCntr{
+	display: flex;
+	align-items: flex-start;
+	justify-content: flex-start;
+}
+
+.ts-sidebar-preview{
+	background: #333;
+	border-radius: 8px;
+	width: 100%;
+	max-width: 270px;
+	padding: 2rem 3rem;
+	display: flex;
+	flex-flow: column nowrap;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+}
+
+.ts-generalCntr h1,
+.ts-generalCntr h3 {
+	color: #F8F8F8;
+}

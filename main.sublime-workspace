@@ -1,0 +1,363 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"flex",
+				"flex-start"
+			],
+			[
+				"last",
+				"lastName"
+			],
+			[
+				"add_action",
+				"add_action\tWP Function"
+			],
+			[
+				"add_actio",
+				"add_action"
+			],
+			[
+				"wp_enqueue",
+				"wp_enqueue_style"
+			],
+			[
+				"get_template",
+				"get_template_directory_uri"
+			],
+			[
+				"wp_regis",
+				"wp_register_style"
+			],
+			[
+				"sa",
+				"sanitizedOutput"
+			],
+			[
+				"str_re",
+				"str_replace"
+			],
+			[
+				"REGISTER",
+				"register_setting"
+			],
+			[
+				"twitt",
+				"twitterHandler"
+			],
+			[
+				"first",
+				"firstName"
+			],
+			[
+				"add_set",
+				"add_settings_field"
+			],
+			[
+				"sett",
+				"settings_fields"
+			],
+			[
+				"register_set",
+				"register_setting\tWP Function"
+			],
+			[
+				"add_action-",
+				"add_action-admin_init\tWP Action"
+			],
+			[
+				"add_ac",
+				"add_action-init\tWP Action"
+			],
+			[
+				"require",
+				"require_once"
+			],
+			[
+				"template",
+				"template_directory"
+			],
+			[
+				"req",
+				"req1\trequire_once …"
+			],
+			[
+				"php",
+				"PHP_DATADIR"
+			],
+			[
+				"manage",
+				"manage_options\tWP Capability"
+			],
+			[
+				"add_subme",
+				"add_submenu_page\tWP Function"
+			],
+			[
+				"query",
+				"query\tWP Filter Name"
+			],
+			[
+				"admin_c",
+				"admin_created_user_email"
+			],
+			[
+				"wp-",
+				"WP-query_posts\tWP Class Method"
+			],
+			[
+				"post",
+				"post_class"
+			],
+			[
+				"qu",
+				"cyrus_query"
+			],
+			[
+				"quer",
+				"query_posts"
+			],
+			[
+				"add_acction",
+				"add_action-admin_action_{$_REQUEST['action']}\tWP Action"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 246.0,
+		"last_filter": "remove",
+		"selected_items":
+		[
+			[
+				"remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"live",
+				"LiveReload: Help"
+			],
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: ",
+				"Package Control: Remove Package"
+			],
+			[
+				"Package Control",
+				"Package Control: List Packages"
+			],
+			[
+				"pac",
+				"Package Control: Install Package"
+			],
+			[
+				"wor",
+				"WordPress Developer: Search Selection"
+			],
+			[
+				"pack",
+				"Package Control: Install Package"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 516.0
+	},
+	"console":
+	{
+		"height": 154.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/C/Program Files (x86)/Ampps/www/ts/wp-content/themes/TheSpectrum_Experience",
+		"/C/Program Files (x86)/Ampps/www/ts/wp-content/themes/TheSpectrum_Experience/css",
+		"/C/Program Files (x86)/Ampps/www/ts/wp-content/themes/TheSpectrum_Experience/inc"
+	],
+	"file_history":
+	[
+		"/C/Program Files (x86)/Ampps/www/ts/wp-content/themes/TheSpectrum_Experience/inc/templates/ts-admin.php",
+		"/C/Program Files (x86)/Ampps/www/ts/wp-content/themes/TheSpectrum_Experience/css/ts.admin.css",
+		"/C/Program Files (x86)/Ampps/www/ts/wp-content/themes/TheSpectrum_Experience/footer.php",
+		"/C/Program Files (x86)/Ampps/www/ts/wp-content/themes/TheSpectrum_Experience/inc/function-admin.php",
+		"/C/Program Files (x86)/Ampps/www/ts/wp-content/themes/TheSpectrum_Experience/inc/enqueue.php",
+		"/C/Program Files (x86)/Ampps/www/ts/wp-content/themes/TheSpectrum_Experience/functions.php",
+		"/C/Users/Keanu Kent Gargar/AppData/Roaming/Sublime Text 3/Packages/User/ColorPicker.sublime-settings",
+		"/C/Users/Keanu Kent Gargar/AppData/Roaming/Sublime Text 3/Packages/ColorPicker/ColorPicker.sublime-settings",
+		"/C/Users/Keanu Kent Gargar/AppData/Roaming/Sublime Text 3/Packages/PHP Completions Kit/README.md",
+		"/C/Users/Keanu Kent Gargar/AppData/Roaming/Sublime Text 3/Packages/SublimePHPIntel/SublimePHPIntel.sublime-settings",
+		"/C/Program Files (x86)/Ampps/www/ts/wp-content/themes/TheSpectrum_Experience/index.html",
+		"/C/Users/Keanu Kent Gargar/AppData/Roaming/Sublime Text 3/Packages/User/WordPressDev.sublime-settings",
+		"/C/Users/Keanu Kent Gargar/AppData/Roaming/Sublime Text 3/Packages/WordpressDev/WordPressDev.sublime-settings"
+	],
+	"find":
+	{
+		"height": 0.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		},
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 42.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			],
+			[
+				1,
+				0,
+				2,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			0.572392758756,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": false,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "main.sublime-project",
+	"replace":
+	{
+		"height": 0.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 1,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": false,
+	"side_bar_width": 307.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
