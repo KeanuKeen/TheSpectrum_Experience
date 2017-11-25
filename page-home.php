@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-<h3>Featured</h3>
+<h3>Hero</h3>
 
 <?php 
 
@@ -28,5 +28,29 @@
 <h3>Categories</h3>
 
 <?php wp_list_categories( array('hide_title_if_empty' => false) ); ?>
+
+<h4>Featured</h4>
+
+<?php 
+
+	ts_get_category_posts('5', '-1');
+
+ ?>
+
+<h4>Humans of La Salle</h4>
+
+<?php 
+
+	ts_get_category_posts('3', '-1');
+
+ ?>
+
+<h4>Uncategorized</h4>
+
+<?php 
+
+	ts_get_category_posts('1', '-1');
+
+ ?>
 
 <?php get_footer(); ?>
