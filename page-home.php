@@ -1,37 +1,32 @@
 <?php get_header(); ?>
 
-<?php wp_list_categories( array('hide_title_if_empty' => false) ); ?>
+<h3>Featured</h3>
+
 <?php 
-	
-	global $wp_query;
 
 	$args = array(
 		// 'category__and' => 'category', 
-		'cat' => '3, -5',
         'posts_per_page' => -1 //get all posts
 	);
 
-	$posts = get_posts($args);
-		foreach ($posts as $post) :
-			the_title();
-			the_content();
-			the_category();
-			_e('----<br>', 'textdomain');
-	endforeach;
+	$the_query = new WP_Query( $args );
 
-	// query_posts('post_type=post');
-	// if( have_posts() ):
-	// 	while ( have_posts() ): the_post();
-	// 		if( is_category( '3' ) ):
-	// 			the_title();
-	// 			the_content();
-	// 			the_category();
-	// 			_e('----<br>', 'textdomain');
-	// 		endif;
-	// 	endwhile;
-	// endif;
+	if( $the_query -> have_posts() ):
+		while( $the_query -> have_posts() ): $the_query -> the_post();
+			if( get_field( "hero_post" ) ):
+				_e('<br>', 'textdomain');
+				the_title();
+				?><p><?php the_content();  ?></p><?php
+				the_category();
+				_e('----<br><br>', 'textdomain');
+			endif;
+		endwhile;
+	endif;
 
-	_e('Hello from page-home', 'textdomain');
  ?>
+
+<h3>Categories</h3>
+
+<?php wp_list_categories( array('hide_title_if_empty' => false) ); ?>
 
 <?php get_footer(); ?>
