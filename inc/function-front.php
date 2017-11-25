@@ -21,8 +21,9 @@ function ts_theme_setup(){
 
 add_action( 'init', 'ts_theme_setup' );
 
-// Front-End
+// #Front-End
 
+// Modular category posts
 function ts_get_category_posts( $cat_id, $no_of_post, array $class = array() ){
 
 	$class = array(
@@ -46,9 +47,19 @@ function ts_get_category_posts( $cat_id, $no_of_post, array $class = array() ){
 			<div class="<?php echo $class['title'] ?>"><?php the_title(); ?></div>
 			<div class="<?php echo $class['body'] ?>"><?php the_content(); ?></div>
 			<div class="<?php echo $class['category'] ?>"><?php the_category(); ?></div>
+			<?php 
 
-			<?php _e('----<br><br>', 'textdomain');
-			
+				$date = get_field( 'event_date' );
+				if( $date ):
+					echo $date;
+				else:
+					echo 'empty';
+				endif;
+
+			?>
+
+			<?php _e('<br>----<br><br>', 'textdomain');
+
 		endwhile;
 	endif;
 
