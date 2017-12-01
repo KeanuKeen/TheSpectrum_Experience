@@ -1,6 +1,9 @@
 <?php get_header(); ?>
 
-<h2>Hero</h3>
+
+<?php wp_head() ?>
+
+<h2>Hero</h2>
 
 <?php 
 
@@ -25,7 +28,7 @@
 
  ?>
 
-<h2>Categories</h3>
+<h2>Categories</h2>
 
 <?php wp_list_categories( array('hide_title_if_empty' => false) ); ?>
 
@@ -39,11 +42,16 @@
 <?php ts_get_category_posts('1', '-1'); ?>
 
 <h2>Upcoming</h2>
+
 <?php 
 
 	$args = array(
 		// 'cat' => $cat_id, 
-        'posts_per_page' => -1 //get all posts
+		'meta_key' 			=> 'event_date',
+		'meta_type'			=> 'DATETIME',
+		'orderby'			=> 'meta_value',
+		'order'				=> 'DESC',
+        'posts_per_page' 	=> -1//get all posts
 	);
 
 	$the_query = new WP_Query( $args );
@@ -57,11 +65,12 @@
 
 
 				_e('<br>', 'textdomain'); ?>
-
+				
+				<div class="<?php echo 'title' ?>"><?php the_title(); ?></div>
 				<div class="<?php echo 'body' ?>"><?php the_content(); ?></div>
 				<div class="<?php echo 'category' ?>"><?php the_category(); ?></div>
 				<?php echo $date; ?>
-
+				<Br>
 
 				<?php _e('<br>----<br><br>', 'textdomain');
 
@@ -70,6 +79,49 @@
 		endwhile;
 	endif;
 
+	wp_reset_postdata();
+
 ?>
+
+<h2>Timeline</h2>
+
+<div class="ts-posts-container">
+	
+	<?php 
+
+		$query = new WP_Query( array(
+
+			'post_type' 		=> 'post',
+			'paged' 			=> 1,
+			'order'				=> 'DESC',
+			'posts_per_page' 	=> 1 //get all posts
+
+		) );
+
+		if( $query -> have_posts() ):
+			while( $query -> have_posts() ): $query -> the_post();
+				
+					_e('<br>', 'textdomain'); ?>
+					
+					<div class="<?php echo 'title' ?>"><?php the_title(); ?></div>
+					<div class="<?php echo 'body' ?>"><?php the_content(); ?></div>
+					<div class="<?php echo 'category' ?>"><?php the_category(); ?></div>
+					<div class="<?php echo 'date' ?>"><?php the_date(); ?></div>
+
+					<?php _e('<br>----<br><br>', 'textdomain');
+
+			endwhile;
+		endif;
+
+		wp_reset_postdata();
+		
+
+	?>
+
+</div>
+
+<div class="btn-load_more" data-page="1" data-url="<?php echo admin_url('admin-ajax.php') ?>">
+	Load More
+</div>
 
 <?php get_footer(); ?>

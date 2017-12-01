@@ -24,4 +24,16 @@ function ts_load_admin_scripts( $hook ){
 
 }
 
-add_action( 'admin_enqueue_scripts', 'ts_load_admin_scripts' ); 
+add_action( 'wp_enqueue_scripts', 'ts_load_admin_scripts' );
+
+function ts_load_scripts(){
+
+	if(is_page( 'home' )){
+		wp_enqueue_style( 'ts-home-style', get_template_directory_uri().'/css/ts.home.css', array(), '1.0.0', 'all' );
+	}
+	wp_enqueue_script( 'ts-home-script', get_template_directory_uri() . '/js/ts.home.js', array('jquery'), '1.0.0', true );
+	
+}
+
+
+add_action('wp_enqueue_scripts', 'ts_load_scripts');
