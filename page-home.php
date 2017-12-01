@@ -121,7 +121,7 @@
 </div>
 
 <div class="btn-load_more" data-page="1" data-url="<?php echo admin_url('admin-ajax.php') ?>">
-	Load More
+	<span>Load More</span>
 </div>
 
 <?php get_footer(); ?>
