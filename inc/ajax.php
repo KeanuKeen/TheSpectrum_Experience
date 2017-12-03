@@ -17,6 +17,7 @@ function ts_load_more(){
 
 	$paged = $_POST["page"] + 1;
 
+	global $query;
 	$query = new WP_Query( array(
 
 		'post_type' 		=> 'post',
@@ -31,7 +32,11 @@ function ts_load_more(){
 			
 				_e('<br>', 'textdomain'); ?>
 				
-				<div class="<?php echo 'title' ?>"><?php the_title(); ?></div>
+				<div class="<?php echo 'title' ?>">
+					<a href="<?php echo the_permalink() ?>">
+						<?php the_title(); ?>
+					</a>
+				</div>
 				<div class="<?php echo 'body' ?>"><?php the_content(); ?></div>
 				<div class="<?php echo 'category' ?>"><?php the_category(); ?></div>
 				<div class="<?php echo 'date' ?>"><?php the_date(); ?></div>

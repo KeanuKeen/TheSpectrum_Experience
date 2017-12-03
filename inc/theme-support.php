@@ -33,3 +33,15 @@ if( @$background == 1){
 	add_theme_support( 'custom-background' );
 }
 
+add_theme_support( 'post-thumbnails' );
+
+
+/*
+	
+	Entry custom meta functions
+
+*/
+
+	function ts_entry_posted_meta(){
+		return "5 days ago.";
+	}

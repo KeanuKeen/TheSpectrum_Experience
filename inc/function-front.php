@@ -44,7 +44,7 @@ function ts_get_category_posts( $cat_id, $no_of_post, array $class = array() ){
 
 			_e('<br>', 'textdomain'); ?>
 
-			<div class="<?php echo $class['title'] ?>"><?php the_title(); ?></div>
+			<!-- <div class="<?php echo $class['title'] ?>"><a href="<?php echo the_permalink() ?>"><?php the_title(); ?></a></div>
 			<div class="<?php echo $class['body'] ?>"><?php the_content(); ?></div>
 			<div class="<?php echo $class['category'] ?>"><?php the_category(); ?></div>
 			<?php 
@@ -56,7 +56,9 @@ function ts_get_category_posts( $cat_id, $no_of_post, array $class = array() ){
 					echo 'empty';
 				endif;
 
-			?>
+			?> -->
+
+			<?php get_template_part( 'template-parts/content', get_post_format() ); ?>
 
 			<?php _e('<br>----<br><br>', 'textdomain');
 

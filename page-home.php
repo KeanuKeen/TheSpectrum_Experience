@@ -1,6 +1,5 @@
 <?php get_header(); ?>
 
-
 <?php wp_head() ?>
 
 <h2>Hero</h2>
@@ -66,7 +65,7 @@
 
 				_e('<br>', 'textdomain'); ?>
 				
-				<div class="<?php echo 'title' ?>"><?php the_title(); ?></div>
+				<div class="<?php echo 'title' ?>"><a href="<?php get_permalink() ?>"><?php the_title(); ?></a></div>
 				<div class="<?php echo 'body' ?>"><?php the_content(); ?></div>
 				<div class="<?php echo 'category' ?>"><?php the_category(); ?></div>
 				<?php echo $date; ?>
@@ -103,7 +102,7 @@
 				
 					_e('<br>', 'textdomain'); ?>
 					
-					<div class="<?php echo 'title' ?>"><?php the_title(); ?></div>
+					<div class="<?php echo 'title' ?>"><a href="<?php get_permalink() ?>"><?php the_title(); ?></a></div>
 					<div class="<?php echo 'body' ?>"><?php the_content(); ?></div>
 					<div class="<?php echo 'category' ?>"><?php the_category(); ?></div>
 					<div class="<?php echo 'date' ?>"><?php the_date(); ?></div>
