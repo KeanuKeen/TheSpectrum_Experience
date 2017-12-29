@@ -1,44 +1,99 @@
 <?php get_header(); ?>
 
-<?php wp_head() ?>
+<section id="cntr-hero" class="u-single">
+	<div id="hero-thumb" class="c-thumb--main v-thumb-prev">
+		<?php 
 
-<h2>Hero</h2>
+			$args = array(
+				// 'category__and' => 'category', 
+				'posts_per_page' => -1 //get all posts
+			);
 
-<?php 
+			$the_query = new WP_Query( $args );
 
-	$args = array(
-		// 'category__and' => 'category', 
-        'posts_per_page' => -1 //get all posts
-	);
-
-	$the_query = new WP_Query( $args );
-
-	if( $the_query -> have_posts() ):
-		while( $the_query -> have_posts() ): $the_query -> the_post();
-			if( get_field( "hero_post" ) ):
-				_e('<br>', 'textdomain');
-				the_title();
-				?><p><?php the_content();  ?></p><?php
-				the_category();
-				_e('----<br><br>', 'textdomain');
+			if( $the_query -> have_posts() ):
+				while( $the_query -> have_posts() ): $the_query -> the_post();
+					if( get_field( "hero_post" ) ):
+						_e('<br>', 'textdomain');
+						the_title();
+						?><p><?php the_content();  ?></p><?php
+						the_category();	
+						_e('<br><br>', 'textdomain');
+					endif;
+				endwhile;
 			endif;
-		endwhile;
-	endif;
 
- ?>
+		?>
+	</div>
+</section>
 
-<h2>Categories</h2>
+<section id="cntr-category" class="series-col u-constraint--main">
+	<div id="cntr-category-table" class="series-col --equalize-border u-center">
+		<div class="series-row u-center --equalize-border --row-trim-padding-upper table--category">
+			<?php 
+				$args = array(
+					'style' 		=> '',
+					'hide_title_if_empty' => false,
+					'taxonomy' => 'category'
+				);
 
-<?php wp_list_categories( array('hide_title_if_empty' => false) ); ?>
+				$categories = get_categories($args);
+
+				foreach ($categories as $category ) {
+					$cat_menu = '<div class="o-custom-cat u-center"><div class="c-custom-cat-title">'
+						. $category->name . '</div></div>';
+					echo $cat_menu;
+				}
+
+			?>
+
+		</div>
+	</div>
+	<div class="series-col --equalize-margin">
+		<?php 
+			$args = array(
+				'style' 		=> '',
+				'hide_title_if_empty' => false,
+				'taxonomy' => 'category'
+			);	
+
+			$categories = get_categories($args);
+
+			foreach ($categories as $category ) {
+				
+				$cat_head = '
+					<div class="category-head">
+						<div class="o-div_cta">
+							<div class="c-div_cta-head v-head">';
+				$cat_head .= $category->name;
+				$cat_head .= '
+						</div>
+						<div class="c-div_cta-foot u-center series-row">
+							<div class="c-div_cta-divider"></div>
+							<div class="c-div_cta-cta u-div_cta-cta--main">MORE ></div>
+							</div>
+						</div>
+					</div>';
+
+				$cat_body_head = '<div class="series-row u--trim-padding-by_col-2 u-padding-1 u-wrap u-start_left">';
+				
+				$cat_body_foot = '</div>';
+
+				echo $cat_head;
+				echo $cat_body_head;
+				ts_get_category_posts($category->cat_ID.'', '-1');
+				echo $cat_body_foot;
+			}
+
+		?>
+		
+			
+		</div>
+	
+</section>
 
 <h4>Featured</h4>
-<?php ts_get_category_posts('5', '-1'); ?>
-
-<h4>Humans of La Salle</h4>
-<?php ts_get_category_posts('3', '-1'); ?>
-
-<h4>Uncategorized</h4>
-<?php ts_get_category_posts('1', '-1'); ?>
+<?php  ?>
 
 <h2>Upcoming</h2>
 
@@ -73,6 +128,8 @@
 
 				<?php _e('<br>----<br><br>', 'textdomain');
 
+		
+
 			endif;
 
 		endwhile;
@@ -80,7 +137,11 @@
 
 	wp_reset_postdata();
 
+	
 ?>
+
+
+
 
 <h2>Timeline</h2>
 

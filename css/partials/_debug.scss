@@ -1,0 +1,140 @@
+@function bp($select: 1, $level: 0){
+    $color: rgb(232, 74, 87);
+    @if $select == 1{
+      $color: lighten(rgb(232, 74, 87) , opacityIndex($level));
+    } @else if $select == 2{
+      $color: lighten(rgb(58, 157, 221) , opacityIndex($level));
+    }
+  
+    @return $color;
+  }
+  
+  @function opacityIndex($level){
+    $hue-thresh: 2.5;
+    @return ($level*10)/$hue-thresh;
+  }
+  
+  @function em($size){
+    @return $size + 0em;
+  }
+  
+  @function rem($size){
+    @return $size + 0rem;
+  }
+  
+  @mixin quadrilateral($height: 0, $scale: 1, $width: 0) {
+    @if $width == 0{
+      height: em($height);
+      width: em($height * $scale);
+    } @else if $height == 0 {
+      width: em($width);
+      height: em($width * $scale);
+    }
+  }
+  
+  @mixin quadrilateralRem($height: 0, $scale: 1, $width: 0) {
+    @if $width == 0{
+      height: rem($height);
+      width: rem($height * $scale);
+    } @else if $height == 0 {
+      width: rem($width);
+      height: rem($width * $scale);
+    }
+  }
+  
+  @mixin test_box-bordered($select, $level: 0){
+    background: bp($select, $level);
+    border: 4px solid bp($select, 3+$level);
+  }
+  
+  @mixin class_name-pos{
+    position: absolute;
+    top: 4px;
+    left: 4px;
+  }
+  
+  @mixin entry_compact {
+    @media (max-width: #{$entry-compact}) {
+      @content;
+    }
+  }
+  
+  @mixin entry_timeline {
+    @media (max-width: #{$entry_timeline}) {
+      @content;
+    }
+  }
+
+  @mixin variable_el {
+    @media (max-width: #{$variable_el}) {
+      @content;
+    }
+  }
+
+  @mixin category_table-tab {
+    @media (max-width: #{$category-tab}) {
+      @content;
+    }
+  }
+
+  ////  < DEBUGGING >
+  
+  .test_box{
+    @include quadrilateral(3);
+    @include test_box-bordered(1);
+    ~ .series-row > .test_box{ // TODO:90 Use JS for nested test boxes
+      @include test_box-bordered(1,1.5);
+      ~ .series-row > .test_box{
+        @include test_box-bordered(1,3);
+      }
+    }
+  }
+  
+  .test_box-custom-primary{
+    @include test_box-bordered(2);
+  }
+  
+  .test_box-custom-secondary{
+    @include test_box-bordered(2,2);
+  }
+  
+  .test_box-custom-main{
+    @include test_box-bordered(1);
+    outline: none !important;
+  }
+  
+  .bp{
+    outline: 1px solid $bp;
+  }
+  
+  section{
+      // margin-bottom: 6em;
+      color: #7c7c7c;
+      position: relative;
+      // display: block;
+      overflow-x: hidden;
+      &::before{
+        @include class_name-pos;
+      }
+  }
+  
+  .ghost{
+    display: block;
+    @include quadrilateral(1/3);
+  }
+  
+  .--rectangle-l{
+    @include quadrilateral(3.75,4);
+  }
+  
+  .--rectangle-m{
+    @include quadrilateral(2,12);
+  }
+  
+  .--rectangle-s{
+    @include quadrilateral(2,4);
+  }
+  
+  .c-div_cta-divider{
+    height: 3px;
+  }

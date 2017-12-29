@@ -1,0 +1,238 @@
+.u-single{
+  @include center;
+  // outline: 1px solid $bp;
+}
+  
+.u-constraint--main{
+  max-width: 1032px;
+  padding: 0 1rem;
+  width: 100%;
+  display: block;
+  margin: 0 auto;
+}
+
+.u-center{
+  @include center;
+}
+
+.u-nowrap{
+  flex-wrap: nowrap; // TODO: Seperate flex-direction and wrap on all
+}
+
+.u-wrap{
+  flex-wrap: wrap;
+}
+
+.u-in-gap-paddings{ //Combination of trim edges & equalize paddings
+  display: none;
+}
+
+.u-padding-1{
+  & > .o--equalized{
+    padding: .5em;
+  }
+}
+
+.u-padding-5{
+  & > .o--equalized{
+    padding: 2.5em;
+  }
+}
+
+.u-parent-width{
+  width: 100%;
+}
+
+.u-parent-height{
+  height: 100%;
+}
+  
+.u--trim-padding-by_col-2{ // TODO: Account for v-start_center & _right
+  & > {
+    & div:nth-child(2n-1){
+      padding-left: 0;
+    }
+    & div:nth-child(2n){
+      padding-right: 0;
+    }
+    & div:not(:nth-child(n+3)){
+      padding-top: 0;
+    }
+    & div:not(:nth-last-child(n+3)):nth-of-type(odd){
+      padding-bottom: 0;
+    }
+    & div:not(:nth-last-child(n+3)):nth-of-type(odd)+div{
+      padding-bottom: 0;
+    }
+  }
+}
+  
+  // .u--trim-border-by_col-4{ // TODO: Account for v-start_center & _right
+  //   & > {
+  //     & div:nth-child(2n-1){
+  //       padding-left: 0;
+  //     }
+  //     & div:nth-child(2n){
+  //       padding-right: 0;
+  //     }
+  //     & div:not(:nth-child(n+3)){
+  //       padding-top: 0;
+  //     }
+  //     & div:not(:nth-last-child(n+3)):nth-of-type(odd){
+  //       padding-bottom: 0;
+  //     }
+  //     & div:not(:nth-last-child(n+3)):nth-of-type(odd)+div{
+  //       padding-bottom: 0;
+  //     }
+  //   }
+  // }
+  
+.u-h1{
+  font-size: 2.35rem;
+  white-space: nowrap;
+  position: relative;
+  font-weight: 300;
+  &::after{
+    content: '';
+    width: 90%;
+    height: 10px;
+    background: #ececec;
+    position: absolute;
+    bottom: 0;
+    left: 5%;
+    z-index: -1;
+  }
+  & > .span{
+    z-index: 9;
+  }
+}
+
+.u-section-head--center{
+  height: 4em;
+  font-size: 2.5em;
+  justify-content: flex-end;
+  font-size: 2.25rem;
+}
+
+.u-noshrink{
+  flex-shrink: 0;
+}
+
+.u-timeline-entry-head--left{
+  align-items: flex-start;
+  justify-content: flex-end;
+  position: relative;
+  margin-bottom: 2em;
+  & .c-entry-tag{
+    position: absolute;
+    top: -2em;
+    right: 1.5rem;
+    & .relative-cntr{
+      flex-direction: row-reverse;
+    }
+  }
+  .c-tag{
+    margin-right: 0;
+    margin-left: .333rem;
+    &:first-child{
+      border-radius: 0 5px 0 0;
+    }
+    &:last-child{
+      border-radius: 5px 0 0 5px;
+    }
+  }
+  .v-timeline-entry-desc{
+    right: .75rem;
+  }
+  .v-timeline-entry-head{
+    margin-right: .75rem;
+    text-align: right;
+  }
+  // .relative-cntr{
+  //   margin-right: .75em;
+  // }
+}
+
+.u-timeline-entry-head--right{
+  align-items: flex-start;
+  justify-content: flex-start;
+  position: relative;
+  margin-bottom: .75em;
+  & .c-entry-tag{
+    position: absolute;
+    top: -2em;
+    left: 1.5rem;
+  }
+  .v-timeline-entry-desc{
+    margin-left: .75rem;
+  }
+  .v-timeline-entry-head{
+    text-align: left;
+    margin-left: .75rem;
+  }
+  .rpsv-direction{
+    flex-direction: row-reverse;
+  }
+  .c-tag{
+    &:first-child{
+      border-radius: 5px 0 0 0;
+    }
+    &:last-child{
+      border-radius: 0 5px 5px 0;
+    }
+  }
+}
+
+.u-timeline-entry-head-text{
+  position: relative;
+  width: 100%;
+  line-height: 1.1em;
+}
+
+.u-timeline--main-head{
+  margin-bottom: 1rem;  
+}
+
+.u-timeline--ts_thumb{
+  width: 100%;
+  max-width: calc(24em*1.4);
+  height: 24em;
+  flex-shrink: 0;
+  // border-radius: 8px; 
+}
+
+.u-col-flush_bottom{
+  margin-top: auto;
+}
+
+.u-div_cta-cta--main{
+  font-size: 1em;
+  font-weight: 400;
+  color: #666666;
+}
+
+.u-timeline-main{
+  visibility: visible;
+}
+
+.u-timeline-resp{
+  display: none;
+}
+
+.u-upcoming-active{
+  width: 100%;
+  .c-timeline--ts_date{
+    margin-bottom: 2rem;
+  }
+  .v-timeline-entry-head{
+    margin-bottom: 1.5rem;
+  }
+}
+
+.u-main-timeline-node{
+  height: 6rem;
+}
+
+.u-upcoming-timeline-node{
+  height: 4rem;
+}

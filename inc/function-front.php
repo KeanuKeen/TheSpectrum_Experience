@@ -42,25 +42,7 @@ function ts_get_category_posts( $cat_id, $no_of_post, array $class = array() ){
 	if( $the_query -> have_posts() ):
 		while( $the_query -> have_posts() ): $the_query -> the_post();
 
-			_e('<br>', 'textdomain'); ?>
-
-			<!-- <div class="<?php echo $class['title'] ?>"><a href="<?php echo the_permalink() ?>"><?php the_title(); ?></a></div>
-			<div class="<?php echo $class['body'] ?>"><?php the_content(); ?></div>
-			<div class="<?php echo $class['category'] ?>"><?php the_category(); ?></div>
-			<?php 
-
-				$date = get_field( 'event_date' );
-				if( $date ):
-					echo $date;
-				else:
-					echo 'empty';
-				endif;
-
-			?> -->
-
-			<?php get_template_part( 'template-parts/content', get_post_format() ); ?>
-
-			<?php _e('<br>----<br><br>', 'textdomain');
+			 get_template_part( 'template-parts/content', get_post_format() ); 
 
 		endwhile;
 	endif;

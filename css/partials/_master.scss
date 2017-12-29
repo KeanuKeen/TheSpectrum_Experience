@@ -1,0 +1,14 @@
+@mixin  flex--cntr{
+  display: flex;
+  height: 4rem;
+}
+
+@mixin center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin menu-item {
+  margin-right: 55px;
+}
