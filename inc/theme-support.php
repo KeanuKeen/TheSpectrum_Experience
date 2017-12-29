@@ -42,6 +42,12 @@ add_theme_support( 'post-thumbnails' );
 
 */
 
-	function ts_entry_posted_meta(){
-		return "5 days ago.";
-	}
+function ts_entry_posted_meta(){
+	return "5 days ago.";
+}
+
+/*
+
+	Custom post type
+
+*/

@@ -112,10 +112,7 @@
       color: #7c7c7c;
       position: relative;
       // display: block;
-      overflow-x: hidden;
-      &::before{
-        @include class_name-pos;
-      }
+      // overflow-x: hidden;
   }
   
   .ghost{

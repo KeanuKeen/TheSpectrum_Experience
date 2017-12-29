@@ -52,9 +52,9 @@
 	<div class="series-col --equalize-margin">
 		<?php 
 			$args = array(
-				'style' 		=> '',
-				'hide_title_if_empty' => false,
-				'taxonomy' => 'category'
+				'style' 				=> '',
+				'hide_title_if_empty' 	=> false,
+				'taxonomy' 				=> 'category'
 			);	
 
 			$categories = get_categories($args);
@@ -93,9 +93,63 @@
 </section>
 
 <h4>Featured</h4>
-<?php  ?>
+
+<section id="cntr-editors_pick" class="series-col u-constraint--main">
+	<div ID="cntr-editors_pick-head" class="o-div_cta -head--inline -head--styled">
+		<div class="series-col c-div_cta-head">
+			<div class="u-h1 v-head">
+				<span>Editor’s pick</span>
+			</div>
+		</div>
+		<div class="u-center u-parent-width series-row">
+			<div class="c-div_cta-divider"></div>
+			<div class="c-div_cta-cta u-div_cta-cta--main">MORE ></div>
+		</div>
+	</div>
+	<div id="cntr-editors_pick-entry" class="series-row u--trim-padding-by_col-2 u-padding-5 u-wrap u-start_left">
+		<?php 
+
+			$args = array(
+				'posts_per_page'	=> '-1',
+			);
+
+			$the_query = new WP_Query($args);
+
+			if( $the_query -> have_posts() ):
+				while( $the_query -> have_posts() ): $the_query -> the_post();
+					
+					$is_picked = get_field('editors_pick');
+					
+					if($is_picked):
+						get_template_part( 'template-parts/content', 'editors' );
+					endif; 
+
+				endwhile;
+			endif;
+
+		?>
+	</div>
+</section>
 
 <h2>Upcoming</h2>
+
+<section id="cntr-upcoming" class="series-col u-center v-dark">
+	<div class="series-col u-center o-section-head--center u-section-head--center u-constraint--main">
+		<div class="series-col u-center u-parent-width">
+			<div class="c-section-head-sub">Upcoming this</div>
+			<div class="c-section-head-header">week</div>
+			<div class="series-row o-divider--three u-parent-width">
+				<div class="u-parent-width u-divider--outer"></div>
+				<div class="u-divider--inner c-natural_form-under"></div>
+				<div class="u-parent-width u-divider--outer"></div>
+			</div>
+		</div>
+	</div>
+	<div id="cntr-upcoming-entry" class="series-col u-parent-width u-center">
+	
+	</div>
+
+</section>
 
 <?php 
 

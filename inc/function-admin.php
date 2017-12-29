@@ -201,3 +201,4 @@ function ts_sanitize_twitter_handler( $input ){
 	$sanitizedOutput = str_replace('@', '', $sanitizedOutput); // replace '@' with an empty character
 	return $sanitizedOutput;
 }
+
