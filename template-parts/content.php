@@ -10,12 +10,11 @@
 
 <div class="o--equalized">
 	<div class="o-entry_post--compact series-col">
-		<div class="c-entry_post-thumb v-thumb-prev">
-			<?php
-				if( has_post_thumbnail() ):
-					the_post_thumbnail();
-			 endif; ?>
+		<?php if( has_post_thumbnail($the_query->ID) ): ?>
+		<div class="u-cover_bg --cat">
+			<div id="<?php the_ID() ?>" class="c-entry_post-thumb" style="background-image: url(<?php the_post_thumbnail_url() ?>)"></div>
 		</div>
+		<?php	endif; ?>
 		<div class="o-entry_post-info series-col">
 			<div class="c-entry_post-head">
 				<div class="c-entry_post-head-title v-head">
@@ -25,7 +24,7 @@
 			<div class="c-entry_post-desc">
 				<?php the_excerpt() ?>
 			</div>
-			<div class="c-entry_post-footer-inv u-col-flush_bottom">
+			<div class="c-entry_post-footer">
 				<div class="c-entry_post-datepub">
 					<?php echo ts_entry_posted_meta() ?>
 				</div>

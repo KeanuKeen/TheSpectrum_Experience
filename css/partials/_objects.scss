@@ -14,7 +14,9 @@
     // height: 20em;
     height: 100%;
     width: 100%;
-    // outline: 1px solid $bp;
+    .c-entry_post-thumb{
+      height: 100%;
+    }
   }
   
   .o-custom-cat{
@@ -47,6 +49,15 @@
       width: 1.9em;
       flex-shrink: 0;
       margin: 0 .111em;
+    }
+  }
+
+  .o-upcoming-feat{
+    .u-timeline-entry-head-text{
+      text-align: center;
+    }
+    .c-upcoming-feat-desc{
+      text-align: center;
     }
   }
   

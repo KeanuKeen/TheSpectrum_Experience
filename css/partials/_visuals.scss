@@ -9,6 +9,7 @@
   max-width: calc(7em * 4);
   width: 100%;
   position: relative;
+  font-size: 14px;
 }
 
 .v-head{
@@ -30,6 +31,7 @@
   }
   & .u-divider--inner{
     background: #535353;
+    position: relative;
   }
   .c-tag{
     color: #656565;

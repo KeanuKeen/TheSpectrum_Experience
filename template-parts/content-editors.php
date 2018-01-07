@@ -8,35 +8,6 @@
 
 ?>
 
-<!-- <div class="o--equalized">
-	<div class="o-entry_post--compact series-col">
-		<div class="c-entry_post-thumb v-thumb-prev">
-			<?php
-				if( has_post_thumbnail() ):
-					the_post_thumbnail();
-			 endif; ?>
-		</div>
-		<div class="o-entry_post-info series-col">
-			<div class="c-entry_post-head">
-				<div class="c-entry_post-head-title v-head">
-					<?php the_title() ?>
-				</div>
-			</div>
-			<div class="c-entry_post-desc">
-				<?php the_excerpt() ?>
-			</div>
-			<div class="c-entry_post-footer-inv u-col-flush_bottom">
-				<div class="c-entry_post-datepub">
-					<?php echo ts_entry_posted_meta() ?>
-				</div>
-			</div>
-		</div>
-	</div>
-</div> -->
-
-
-	
-
 <div class="o--equalized">
 	<div class="timeline-compact u-parent-width o-row--timeline u-timeline-entry--right">
 		<div class="u-parent-width u-timeline-entry-head--right">
@@ -53,15 +24,14 @@
 			</div>
 		</div>
 		<div class="c-timeline--ts_thumb series-row u-start_left">
-			<div class="v-thumb-prev v-timeline-thumb u-timeline--ts_thumb">
-				 <?php 
-					if( has_post_thumbnail() ):
-						the_post_thumbnail();
-					endif;
-				 ?>
+			<?php if( has_post_thumbnail() ): ?>
+			<div class="u-cover_bg v-timeline-thumb ">
+				<div class="u-timeline--ts_thumb c-entry_post-thumb" style="background-image: url(<?php the_post_thumbnail_url() ?>)">
+			</div>
+			<?php endif; ?>
 			</div>
 		</div>
-		<div class="rpsv-desc">
+		<div class="rpsv-desc c-entry_post-desc">
 			<div class="v-timeline-entry-desc">
 				<?php the_excerpt() ?>
 			</div>

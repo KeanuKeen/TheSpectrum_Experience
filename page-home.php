@@ -52,9 +52,10 @@
 	<div class="series-col --equalize-margin">
 		<?php 
 			$args = array(
-				'style' 				=> '',
+				'style' 								=> '',
 				'hide_title_if_empty' 	=> false,
-				'taxonomy' 				=> 'category'
+				'taxonomy' 							=> 'category',
+				'post_per_page' 				=> 4,
 			);	
 
 			$categories = get_categories($args);
@@ -83,7 +84,7 @@
 				echo $cat_body_head;
 				ts_get_category_posts($category->cat_ID.'', '-1');
 				echo $cat_body_foot;
-			}
+			}	
 
 		?>
 		
@@ -91,8 +92,6 @@
 		</div>
 	
 </section>
-
-<h4>Featured</h4>
 
 <section id="cntr-editors_pick" class="series-col u-constraint--main">
 	<div ID="cntr-editors_pick-head" class="o-div_cta -head--inline -head--styled">
@@ -127,11 +126,11 @@
 				endwhile;
 			endif;
 
+			wp_reset_postdata();
+
 		?>
 	</div>
 </section>
-
-<h2>Upcoming</h2>
 
 <section id="cntr-upcoming" class="series-col u-center v-dark">
 	<div class="series-col u-center o-section-head--center u-section-head--center u-constraint--main">
@@ -146,93 +145,142 @@
 		</div>
 	</div>
 	<div id="cntr-upcoming-entry" class="series-col u-parent-width u-center">
+		<?php 
+
+			$today_date = current_time('mysql');
+			$post_per_page = 4;
+			$paged = 1;
+
+
+			$args = array(
+				'cat' 						=> '7', 
+				'orderby'					=> array(
+					'meta_value'		=> 'ASC',
+				),
+				'posts_per_page' 	=> $post_per_page,
+				'paged'						=> $paged,
+				'meta_query'			=> array(
+					array(
+						'key'					=> 'event_date',
+						'value'				=> "''",
+						'type'				=> 'DATETIME',
+						'compare'			=> '!='
+					),
+					array(
+						'key'					=> 'event_date',
+						'value'				=> $today_date,
+						'type'				=> 'DATETIME',
+						'compare'			=> '>=',
+					),
+				),
+
+			);	
+
+			$the_query = new WP_Query( $args );
+			$the_query->posts = array_reverse($the_query->posts);
+
+			$post_count_total = $the_query -> found_posts;
+			$post_count_page = $the_query -> post_count;
+			$n = $post_count_page	;
+			$dir_class = null;
+
+			if( $the_query -> have_posts() ):
+
+				while( $the_query -> have_posts() ): $the_query -> the_post();
+
+				$event_date = get_field( 'event_date', false, false );
+				$event_date = new DateTime($event_date);
+				$event_month =  $event_date->format('m');
+				$event_day = $event_date->format('d');
+		
+					if( $n%2 == 0 ){
+						$dir_class = 'right';
+					} else{
+						$dir_class = 'left';
+					}
 	
+					$n--;
+
+					require(locate_template('template-parts/content-upcoming.php'));
+
+			endwhile;
+			endif;
+
+			wp_reset_postdata();
+		?>
 	</div>
 
 </section>
 
-<?php 
-
-	$args = array(
-		// 'cat' => $cat_id, 
-		'meta_key' 			=> 'event_date',
-		'meta_type'			=> 'DATETIME',
-		'orderby'			=> 'meta_value',
-		'order'				=> 'DESC',
-        'posts_per_page' 	=> -1//get all posts
-	);
-
-	$the_query = new WP_Query( $args );
-
-	if( $the_query -> have_posts() ):
-		while( $the_query -> have_posts() ): $the_query -> the_post();
-			
-			$date = get_field( 'event_date' );
-
-			if( $date ):
-
-
-				_e('<br>', 'textdomain'); ?>
-				
-				<div class="<?php echo 'title' ?>"><a href="<?php get_permalink() ?>"><?php the_title(); ?></a></div>
-				<div class="<?php echo 'body' ?>"><?php the_content(); ?></div>
-				<div class="<?php echo 'category' ?>"><?php the_category(); ?></div>
-				<?php echo $date; ?>
-				<Br>
-
-				<?php _e('<br>----<br><br>', 'textdomain');
-
-		
-
-			endif;
-
-		endwhile;
-	endif;
-
-	wp_reset_postdata();
-
-	
-?>
-
-
-
-
-<h2>Timeline</h2>
 
 <div class="ts-posts-container">
-	
+<section id="cntr-timeline" class="series-col u-center u-constraint--main">
+	<div ID="cntr-editors_pick-head" class="o-div_cta -head--inline -head--styled">
+		<div class="series-col c-div_cta-head">
+			<div class="u-h1 v-head">
+				<span>Timeline</span>
+			</div>
+		</div>
+		<div class="u-center u-parent-width series-row">
+			<div class="c-div_cta-divider"></div>
+			<div class="c-div_cta-cta u-div_cta-cta--main">MORE ></div>
+		</div>
+	</div>
 	<?php 
 
-		$query = new WP_Query( array(
+		$post_count = 0;
+		$dir_class = null;
+		$post_per_page = 4;
+		$paged = 1;
 
-			'post_type' 		=> 'post',
-			'paged' 			=> 1,
-			'order'				=> 'DESC',
-			'posts_per_page' 	=> 1 //get all posts
+		$args = array(
+			'post_type' 			=> 'post',
+			'paged' 					=> $paged,
+			'order'						=> 'DESC',
+			'posts_per_page' 	=> $post_per_page,
+		);
 
-		) );
+		$the_query = new WP_Query($args);
+		$post_count_total = $the_query -> found_posts;
+		$post_count_page = $the_query -> post_count;
+		$n = $post_count_total - ($paged - 1)*$post_per_page;
+		$dir_class = null;
 
-		if( $query -> have_posts() ):
-			while( $query -> have_posts() ): $query -> the_post();
-				
-					_e('<br>', 'textdomain'); ?>
-					
-					<div class="<?php echo 'title' ?>"><a href="<?php get_permalink() ?>"><?php the_title(); ?></a></div>
-					<div class="<?php echo 'body' ?>"><?php the_content(); ?></div>
-					<div class="<?php echo 'category' ?>"><?php the_category(); ?></div>
-					<div class="<?php echo 'date' ?>"><?php the_date(); ?></div>
+		if( $the_query -> have_posts() ):
+			while( $the_query -> have_posts() ): $the_query -> the_post();
 
-					<?php _e('<br>----<br><br>', 'textdomain');
+				if($post_per_page == -1):
+					$post_per_page = 0;
+				endif;
+
+				echo $n;
+
+				if( $n%2 == 0 ){
+					$dir_class = 'right';
+				} else{
+					$dir_class = 'left';
+				}
+
+				$n--;
+
+				require(locate_template('template-parts/content-timeline.php'));
 
 			endwhile;
 		endif;
 
 		wp_reset_postdata();
-		
-
+	
 	?>
 
+
+</section>
 </div>
+	
+	
+
+
+
+
 
 <div class="btn-load_more" data-page="1" data-url="<?php echo admin_url('admin-ajax.php') ?>">
 	<span>Load More</span>

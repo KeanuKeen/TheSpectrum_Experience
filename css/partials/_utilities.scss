@@ -67,26 +67,6 @@
   }
 }
   
-  // .u--trim-border-by_col-4{ // TODO: Account for v-start_center & _right
-  //   & > {
-  //     & div:nth-child(2n-1){
-  //       padding-left: 0;
-  //     }
-  //     & div:nth-child(2n){
-  //       padding-right: 0;
-  //     }
-  //     & div:not(:nth-child(n+3)){
-  //       padding-top: 0;
-  //     }
-  //     & div:not(:nth-last-child(n+3)):nth-of-type(odd){
-  //       padding-bottom: 0;
-  //     }
-  //     & div:not(:nth-last-child(n+3)):nth-of-type(odd)+div{
-  //       padding-bottom: 0;
-  //     }
-  //   }
-  // }
-  
 .u-h1{
   font-size: 2.35rem;
   white-space: nowrap;
@@ -187,6 +167,7 @@
   position: relative;
   width: 100%;
   line-height: 1.1em;
+  max-width: 26rem;
 }
 
 .u-timeline--main-head{
@@ -197,8 +178,7 @@
   width: 100%;
   max-width: calc(24em*1.4);
   height: 24em;
-  flex-shrink: 0;
-  // border-radius: 8px; 
+  // flex-shrink: 0;
 }
 
 .u-col-flush_bottom{
@@ -230,9 +210,18 @@
 }
 
 .u-main-timeline-node{
-  height: 6rem;
+  height: 8rem;
 }
 
 .u-upcoming-timeline-node{
-  height: 4rem;
+  height: 3.5rem;
+}
+
+.u-cover_bg{
+  width: 100%;
+  // flex-shrink: 0;
+  overflow: hidden;
+  &.--cat{
+    height: 40%;
+  }
 }

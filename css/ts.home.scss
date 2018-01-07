@@ -251,7 +251,7 @@
 .rpsv-desc {
   display: none;
   max-height: 7rem;
-  height: 100%;
+  height: auto;
   padding-top: 1.5rem;
 }
 
@@ -401,3 +401,11 @@ body{
   width: 100%;
 }
 //// Specifics
+
+#\33 9{
+  background-position: 50% 35% !important;
+}
+
+#\37 0{
+  background-position: 50% 70% !important;
+}

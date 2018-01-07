@@ -135,3 +135,11 @@
   .c-div_cta-divider{
     height: 3px;
   }
+
+  section{
+    display: none !important;
+  }
+
+  section#cntr-timeline{
+    display: flex !important;
+  }
